@@ -1,4 +1,6 @@
-const express = require('express');
+if( existingReferral ){
+        return res.status(400).send({ error: 'Email already exists' });
+    }const express = require('express');
 const bodyParser = require('body-parser');
 const { PrismaClient } = require('@prisma/client');
 const nodemailer = require('nodemailer');
@@ -15,7 +17,9 @@ const oAuth2Client = new google.auth.OAuth2(CLIENT_ID,CLIENT_SECRET,REDIRECT_URI
 oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN});
 
 
-
+if( existingReferral ){
+        return res.status(400).send({ error: 'Email already exists' });
+    }
 
 
 const app = express();
@@ -112,5 +116,5 @@ app.post('/api/referrals', async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port Hello Sai ${PORT}`);
 });
