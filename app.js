@@ -47,7 +47,7 @@ app.post('/api/referrals', async (req, res) => {
     courseInterested,
     referalId,
   } = req.body;
-
+  console.log(req.body);
   if (!name || !email || !mobileNumber || !referalId || !courseInterested) {
     return res.status(400).send({ error: 'All fields are required' });
   }
