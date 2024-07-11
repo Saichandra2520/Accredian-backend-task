@@ -25,7 +25,9 @@ const prisma = new PrismaClient();
 
 app.use(bodyParser.json());
 
-
+app.get('/api', async (req,res) => {
+        res.status(200).send('Hello World');
+});
 app.get('/api/referrals', async (req, res) => {
     try {
       const referrals = await prisma.referral.findMany();
