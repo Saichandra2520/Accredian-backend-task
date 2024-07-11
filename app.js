@@ -30,8 +30,9 @@ app.get('/api', async (req,res) => {
 });
 app.get('/api/referrals', async (req, res) => {
     try {
+      console.log(prisma);
       const referrals = await prisma.referral.findMany();
-      console.log(referrals)
+      
       res.status(200).json(referrals);
     } catch (error) {
       res.status(500).send({ error: 'An error occurred while fetching the referrals' });
