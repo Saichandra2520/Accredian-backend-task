@@ -1,6 +1,4 @@
-if( existingReferral ){
-        return res.status(400).send({ error: 'Email already exists' });
-    }const express = require('express');
+const express = require('express');
 const bodyParser = require('body-parser');
 const { PrismaClient } = require('@prisma/client');
 const nodemailer = require('nodemailer');
@@ -26,9 +24,6 @@ const prisma = new PrismaClient();
 
 app.use(bodyParser.json());
 
-app.get('/api', async (req,res) => {
-        res.status(200).send('Hello World');
-}
 
 app.get('/api/referrals', async (req, res) => {
     try {
@@ -119,5 +114,5 @@ app.post('/api/referrals', async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port Hello Sai ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
